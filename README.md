@@ -18,4 +18,3 @@
    (закрашивание в черный цвет).
 
 
-https://github.com/Marina113/mesto.git
