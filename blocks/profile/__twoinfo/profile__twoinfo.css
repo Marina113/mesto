@@ -1,0 +1,12 @@
+.profile__twoinfo{
+  margin: 0;
+  display: flex;
+}
+
+@media screen and (min-width: 320px) and (max-width:670px){
+  .profile__twoinfo{
+    flex-direction: column;
+    margin-bottom: 32px;
+    justify-content: center;
+  }
+}

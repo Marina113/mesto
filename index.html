@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="body">
+  <div class="page">
+    <header class="header">
+      <a href="#" class="header__logo-link">
+        <img src="./images/logo.svg" alt="Mesto Russia" class="header__logo">
+      </a>
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__twoinfo">
+        <img class="profile__ava" src="./images/avat.jpg" alt="Жак-Ив Кусто">
+          <div class="profile__information">
+            <div class="profile__info">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <button type="button" class="profile__open-popup"></button>
+            </div>
+            <p class="profile__subtitle">Исследователь океана</p>
+          </div>
+        </div>
+        <button type="button" class="profile__addbutton"></button>
+      </section>
+      <section class="elements">
+        <div class="elements__item">
+          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Заброшенная церковь" class="elements__picture">
+          <div class="elements__block">
+            <h2 class="elements__text">Карачаевск</h2>
+            <button type="button" class="elements__like elements__like_active"></button>
+          </div>
+        </div>
+        <div class="elements__item">
+          <img src="./images/gora_Elbrus.jpg" alt="Эльбрус на закате" class="elements__picture">
+          <div class="elements__block">
+            <h2 class="elements__text">Гора Эльбрус</h2>
+            <button type="button" class="elements__like elements__like_active"></button>
+          </div>
+        </div>
+        <div class="elements__item">
+          <img src="./images/dombay.jpg" alt="Горы, леса" class="elements__picture">
+          <div class="elements__block">
+            <h2 class="elements__text">Домбай</h2>
+            <button type="button" class="elements__like elements__like_active"></button>
+          </div>
+        </div>
+        <div class="elements__item">
+          <img src="./images/medovye-vodopady-700x467.jpg" alt="Водопад с гор возле домов" class="elements__picture">
+          <div class="elements__block">
+            <h2 class="elements__text">Медовые водопады</h2>
+            <button type="button" class="elements__like elements__like_active"></button>
+          </div>
+        </div>
+        <div class="elements__item">
+          <img src="./images/radioteleskop-ratan-600-700x458.jpg" alt="Радиотелескоп РАТАН-600" class="elements__picture">
+          <div class="elements__block">
+            <h2 class="elements__text">Радиотелескоп РАТАН-600</h2>
+            <button type="button" class="elements__like elements__like_active"></button>
+          </div>
+        </div>
+        <div class="elements__item">
+          <img src="./images/badukskie-ozera-1-700x467.jpg" alt="Бадукские озера" class="elements__picture">
+          <div class="elements__block">
+            <h2 class="elements__text">Бадукские озера</h2>
+            <button type="button" class="elements__like elements__like_active"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">&copy; 2023 Mesto Russia</p>
+    </footer>
+    <section class="popup">
+      <form class="popup__container">
+        <button type="reset" class="popup__close"></button>        
+          <h2 class="popup__profil">Редактировать профиль</h2>
+          <div class="popup__content">
+            <input type="text" class="popup__input-container popup__input-container_name" value="Жак-Ив Кусто"></input>
+            <input type="text" class="popup__input-container popup__input-container_info" value="Исследователь океана"></input>
+          </div>
+          <button type="submit" class="popup__save">Сохранить</button>
+      </form>
+    </section>
+  </div>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>

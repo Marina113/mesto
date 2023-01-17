@@ -1,0 +1,21 @@
+.profile__open-popup{
+  margin: 0;
+  min-width: 24px;
+  height: 24px;
+  background-image: url(../../../images/Vectoredd.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+.profile__open-popup:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px){
+  .profile__open-popup{
+    min-width: 18px;
+    height: 18px;
+  }
+}
