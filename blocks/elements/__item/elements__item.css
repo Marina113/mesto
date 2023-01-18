@@ -1,7 +1,7 @@
 .elements__item{
   margin: 0;
   max-width: 282px;
-  height: 361px;
+  min-height: 361px;
   display: flex;
   flex-direction: column;
   background-image: url(../../../images/Rectangle.png);

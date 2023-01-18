@@ -16,7 +16,7 @@
     </header>
     <main class="content">
       <section class="profile">
-        <div class="profile__twoinfo">
+        <div class="profile__two-info">
         <img class="profile__ava" src="./images/avat.jpg" alt="Жак-Ив Кусто">
           <div class="profile__information">
             <div class="profile__info">
@@ -26,7 +26,7 @@
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
         </div>
-        <button type="button" class="profile__addbutton"></button>
+        <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements">
         <div class="elements__item">
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="elements__item">
-          <img src="./images/gora_Elbrus.jpg" alt="Эльбрус на закате" class="elements__picture">
+          <img src="./images/gora-elbrus.jpg" alt="Эльбрус на закате" class="elements__picture">
           <div class="elements__block">
             <h2 class="elements__text">Гора Эльбрус</h2>
             <button type="button" class="elements__like elements__like_active"></button>
@@ -76,17 +76,17 @@
     <footer class="footer">
       <p class="footer__text">&copy; 2023 Mesto Russia</p>
     </footer>
-    <section class="popup">
-      <form class="popup__container">
-        <button type="reset" class="popup__close"></button>        
-          <h2 class="popup__profil">Редактировать профиль</h2>
-          <div class="popup__content">
-            <input type="text" class="popup__input-container popup__input-container_name" value="Жак-Ив Кусто">
-            <input type="text" class="popup__input-container popup__input-container_info" value="Исследователь океана">
-          </div>
+    <div class="popup">
+      <div class="popup__content">
+        <button type="reset" class="popup__close"></button>
+        <h2 class="popup__profil">Редактировать профиль</h2>
+        <form class="popup__container" name="form">
+          <input type="text" class="popup__input-container popup__input-container_type_name" value="Жак-Ив Кусто" name="name">
+          <input type="text" class="popup__input-container popup__input-container_type_info" value="Исследователь океана" name="about-self">
           <button type="submit" class="popup__save">Сохранить</button>
-      </form>
-    </section>
+        </form>
+      </div>
+    </div>
   </div>
   <script src="./scripts/index.js"></script>
 </body>

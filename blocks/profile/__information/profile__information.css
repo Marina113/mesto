@@ -11,7 +11,7 @@
   .profile__information{
     flex-direction: column;
     margin-left: 0;
-    min-width: 282px;
+    max-width: 282px;
     text-align: center;
   }
 }
