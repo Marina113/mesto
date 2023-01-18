@@ -4,8 +4,6 @@
   min-height: 361px;
   display: flex;
   flex-direction: column;
-  background-image: url(../../../images/rectangle.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-color: #fff;
+  border-radius: 10px;
 }
