@@ -29,64 +29,54 @@
         <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements">
-        <div class="elements__item">
-          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Заброшенная церковь" class="elements__picture">
-          <div class="elements__block">
-            <h2 class="elements__text">Карачаевск</h2>
-            <button type="button" class="elements__like elements__like_active"></button>
-          </div>
-        </div>
-        <div class="elements__item">
-          <img src="./images/gora-elbrus.jpg" alt="Эльбрус на закате" class="elements__picture">
-          <div class="elements__block">
-            <h2 class="elements__text">Гора Эльбрус</h2>
-            <button type="button" class="elements__like elements__like_active"></button>
-          </div>
-        </div>
-        <div class="elements__item">
-          <img src="./images/dombay.jpg" alt="Горы, леса" class="elements__picture">
-          <div class="elements__block">
-            <h2 class="elements__text">Домбай</h2>
-            <button type="button" class="elements__like elements__like_active"></button>
-          </div>
-        </div>
-        <div class="elements__item">
-          <img src="./images/medovye-vodopady-700x467.jpg" alt="Водопад с гор возле домов" class="elements__picture">
-          <div class="elements__block">
-            <h2 class="elements__text">Медовые водопады</h2>
-            <button type="button" class="elements__like elements__like_active"></button>
-          </div>
-        </div>
-        <div class="elements__item">
-          <img src="./images/radioteleskop-ratan-600-700x458.jpg" alt="Радиотелескоп РАТАН-600" class="elements__picture">
-          <div class="elements__block">
-            <h2 class="elements__text">Радиотелескоп РАТАН-600</h2>
-            <button type="button" class="elements__like elements__like_active"></button>
-          </div>
-        </div>
-        <div class="elements__item">
-          <img src="./images/badukskie-ozera-1-700x467.jpg" alt="Бадукские озера" class="elements__picture">
-          <div class="elements__block">
-            <h2 class="elements__text">Бадукские озера</h2>
-            <button type="button" class="elements__like elements__like_active"></button>
-          </div>
-        </div>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__text">&copy; 2023 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_type_edit">              <!--Попап редактирования-->
       <div class="popup__content">
         <button type="reset" class="popup__close"></button>
         <h2 class="popup__profil">Редактировать профиль</h2>
-        <form class="popup__container" name="form">
+        <form class="popup__container popup__container_type_edit" name="form">
           <input type="text" class="popup__input-container popup__input-container_type_name" value="Жак-Ив Кусто" name="name">
           <input type="text" class="popup__input-container popup__input-container_type_info" value="Исследователь океана" name="about-self">
           <button type="submit" class="popup__save">Сохранить</button>
         </form>
       </div>
     </div>
+    <div class="popup popup_type_add">                 <!--Попап создания-->
+      <div class="popup__content">
+        <button type="reset" class="popup__close"></button>
+        <h2 class="popup__profil">Новое место</h2>
+        <form class="popup__container popup__container_type_add" name="form">
+          <input type="text" class="popup__input-container popup__input-container_type_name" placeholder="Название" name="title">
+          <input type="url" class="popup__input-container popup__input-container_type_info" placeholder="Ссылка на картинку" name="way">
+          <button type="submit" class="popup__save">Создать</button>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="popup popup_type_watch">                <!--Попап просмотра картинок-->
+      <div class="popup__content popup__content_type_watch">
+        <img src="#" alt="" class="elements__picture elements__picture_type_watch">
+        <h2 class="popup__profil popup__profil_type_watch"></h2>
+      </div>
+    </div>
+
+
+    <template id="card-template">
+      <div class="elements__item">
+        <img src="#" alt="" class="elements__picture elements__picture_type_alt">
+        <button type="button" class="elements__trash"></button>
+        <div class="elements__block">
+          <h2 class="elements__text"></h2>
+          <button type="button" class="elements__like"></button>
+        </div>
+      </div>
+    </template>
+
   </div>
   <script src="./scripts/index.js"></script>
 </body>
