@@ -9,14 +9,20 @@
   font-weight: normal;
 }
 
-@media screen and (min-width:321px) and (max-width:890px){
+@media screen and (min-width:769px) and (max-width:1024px){
   .page{
-    max-width: 890px;
+    max-width: 880px;
+  }
+}
+
+@media screen and (min-width:321px) and (max-width:768px){
+  .page{
+    max-width: 700px;
   }
 }
 
 @media screen and (max-width: 320px){
   .page{
-    max-width: 320px;
+    max-width: 282px;
   }
 }

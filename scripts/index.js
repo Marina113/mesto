@@ -25,7 +25,7 @@ const profileName = profileElement.querySelector('.profile__title');
 const profileJob = profileElement.querySelector('.profile__subtitle');
 const nameAddInput = popupAddElement.querySelector('.popup__input-container_type_name');
 const jobAddInput = popupAddElement.querySelector('.popup__input-container_type_info');
-const nameWatchInput = popupTypeWatch.querySelector('.elements__text_type_watch');
+// const nameWatchInput = popupTypeWatch.querySelector('.elements__text_type_watch');
 const linkWatchInput = popupTypeWatch.querySelector('.popup__picture');
 
 //*************    ОТКРЫТИЕ ПОПАПОВ
@@ -42,7 +42,6 @@ const linkWatchInput = popupTypeWatch.querySelector('.popup__picture');
     popupTypeWatch.classList.add('popup_opened')
   }
 
-
   //*************    ЗАКРЫТИЕ ПОПАПОВ
   const closePopup = function(evt){
     evt.target.closest('.popup').classList.remove('popup_opened');
@@ -50,10 +49,6 @@ const linkWatchInput = popupTypeWatch.querySelector('.popup__picture');
   const closePopupAdd = function(){
     popupAddElement.classList.remove('popup_opened');
   }
-
-  // const closePopupWatch = function(){//????????????????????????????
-  //   popupTypeWatch.classList.remove('popup_opened');
-  // }
 
   const closePopupByClickOnOverlay = function(event){
     if (event.target !== event.currentTarget){
@@ -73,8 +68,6 @@ popupElement.addEventListener('click',closePopupByClickOnOverlay);
 popupElement.addEventListener('submit', handleFormSubmit);
 popupAddForm.addEventListener('submit', handleFormAddSubmit);
 
-//popupTypeWatch.addEventListener('click',openPopupWatch);
-
 popupSaveButtonElement.addEventListener('click',() =>{
   e.preventDefault();
   const name = input.value;
@@ -83,7 +76,6 @@ popupSaveButtonElement.addEventListener('click',() =>{
     const cardImg = card.querySelector('.elements__picture').src = link;
     renderCards(card);
 })
-
 
 //*************  ФУНКЦИЯ ДОБАВЛЕНИЯ КАРТОЧЕК
 function handleFormSubmit (evt) {
@@ -118,24 +110,17 @@ function renderCards(initialCards){
     card.remove();
     });    
 
-    
+    const cardItem = document.querySelector('.elements__picture');
+    const imgWatch = popupTypeWatch.querySelector('.popup__picture');
+    const textWatch = popupTypeWatch.querySelector('.popup__text');
+    const imgAltWatch = popupTypeWatch.querySelector('.popup__picture');
+    cardItem.addEventListener('click', function(){
+      openPopupWatch();
+      imgWatch.src = item.link;
+      textWatch.textContent = item.name;
+      imgAltWatch.alt = item.name;
+    });    
     return card;
   });
 }
 renderCards(initialCards);
-
-function watchClick(){
-  popupTypeWatch.classList.add('popup_opened');
-  const imgWatch = popupTypeWatch.querySelector('.popup__picture');
-  const textWatch = popupTypeWatch.querySelector('.elements__text_type_watch');
-  const imgAltWatch = popupTypeWatch.querySelector('.popup__picture');
-  imgWatch.src = item.link;
-  textWatch.textContent = item.name;
-  imgAltWatch.alt = item.name
-}
-  card.querySelector('.elements__picture').addEventListener('click', watchClick);
-
-// popupTypeWatch.querySelector('.popup__picture').addEventListener('click',() => {
-//   openPopupWatch();
-// });
-
