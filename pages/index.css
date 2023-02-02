@@ -44,6 +44,6 @@
 @import url(../blocks/popup/_type/popup_type_add.css);
 @import url(../blocks/popup/_type/popup_type_edit.css);
 @import url(../blocks/popup/_type/popup_type_watch.css);
-@import url(../blocks/popup/__content/_type/popup__content_type_watch.css);
+@import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/popup/__picture/popup__picture.css);
 @import url(../blocks/popup/__text/popup__text.css)
