@@ -34,29 +34,41 @@
     <footer class="footer">
       <p class="footer__text">&copy; 2023 Mesto Russia</p>
     </footer>
-    <div class="popup popup_type_edit">              <!--Попап редактирования-->
+    <div class="popup popup_type_edit">       <!--Попап редактирования-->
       <div class="popup__content">
         <button type="reset" class="popup__close"></button>
         <h2 class="popup__profil">Редактировать профиль</h2>
-        <form class="popup__container popup__container_type_edit" name="form">
-          <input type="text" class="popup__input-container popup__input-container_type_name" value="Жак-Ив Кусто" name="name">
-          <input type="text" class="popup__input-container popup__input-container_type_info" value="Исследователь океана" name="about-self">
+        <form class="popup__container popup__container_type_edit" name="form" novalidate>
+          <label class="popup__label">
+              <input id="text-input" type="text" class="popup__input-container popup__input-container_type_name" value="Жак-Ив Кусто" name="name" placeholder="Имя" minlength="2" maxlength="40" autocomplete="off" required>
+              <span class="text-input-error popup__input-container-error"></span>
+          </label>
+          <label class="popup__label">
+              <input id="info-input" type="text" class="popup__input-container popup__input-container_type_info" value="Исследователь океана" name="about-self" minlength="2" maxlength="200" placeholder="О себе" autocomplete="off" required>
+              <span class="info-input-error popup__input-container-error"></span>
+          </label>
           <button type="submit" class="popup__save">Сохранить</button>
         </form>
       </div>
     </div>
-    <div class="popup popup_type_add">                 <!--Попап создания-->
+    <div class="popup popup_type_add">       <!--Попап создания-->
       <div class="popup__content">
         <button type="reset" class="popup__close"></button>
         <h2 class="popup__profil">Новое место</h2>
-        <form class="popup__container popup__container_type_add" name="form">
-          <input type="text" class="popup__input-container popup__input-container_type_name" placeholder="Название" name="title">
-          <input type="url" class="popup__input-container popup__input-container_type_info" placeholder="Ссылка на картинку" name="way">
+        <form class="popup__container popup__container_type_add" name="form" novalidate>
+          <label class="popup__label">
+              <input id="title-input" type="text" class="popup__input-container popup__input-container_type_name" placeholder="Название" name="title" minlength="2" maxlength="30" autocomplete="off" required>
+              <span class="title-input-error popup__input-container-error"></span>
+          </label>
+          <label class="popup__label">
+              <input id="url-input" type="url" class="popup__input-container popup__input-container_type_info" placeholder="Ссылка на картинку" name="way" autocomplete="off" required>
+              <span class="url-input-error popup__input-container-error"></span>
+          </label>
           <button type="submit" class="popup__save">Создать</button>
         </form>
       </div>
     </div>
-    <div class="popup popup_type_watch">                <!--Попап просмотра картинок-->
+    <div class="popup popup_type_watch">       <!--Попап просмотра картинок-->
       <div class="popup__img">
         <button type="reset" class="popup__close"></button>
         <img src="#" alt="#" class="popup__picture">
@@ -76,5 +88,6 @@
   </div>
   <script src="./scripts/initialCards.js" defer></script>
   <script src="./scripts/index.js" defer></script>
+  <script src="./scripts/validate.js" defer></script>
 </body>
 </html>
