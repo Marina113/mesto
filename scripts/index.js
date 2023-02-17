@@ -16,6 +16,8 @@ const popupOpenButtonElement = document.querySelector(".profile__open-popup");
 const popupAddButtonElement = document.querySelector(".profile__add-button");
 const popupTrashButtonElement = document.querySelector(".elements__trash");
 const popupButtonSaveElement = document.querySelector(".popup__save");
+const popupButtonSaveAddElement = document.querySelector(".popup__save-add");
+
 const profileElement = document.querySelector(".profile");
 const template = document.querySelector("#card-template").content.querySelector(".elements__item");
 const cards = document.querySelector(".elements");
@@ -34,6 +36,7 @@ const linkWatchInput = popupTypeWatch.querySelector(".popup__picture");
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown",closeByClickEsc);
+  
 }
 function openEditPopup() {
   nameEditInput.value = profileName.textContent;
@@ -42,6 +45,7 @@ function openEditPopup() {
 }
 function openAddPopup() {
   openPopup(popupAddElement);
+  // popupButtonSaveElement.setAttribute("disabled","");
 }
 function openWatchPopup() {
   openPopup(popupWatchElement);
@@ -87,8 +91,8 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameEditInput.value;
   profileJob.textContent = jobEditInput.value;
   closePopup(popupEditElement);
-  
 };
+
 const renderCards = (item) => {
   const card = createCard(item);
   cards.prepend(card);
@@ -120,6 +124,8 @@ function createCard(item) {
   return card;
 }
 
+
+
 function handleProfileFormAddSubmit(evt) {
   evt.preventDefault();
   const addCard = {
@@ -129,7 +135,11 @@ function handleProfileFormAddSubmit(evt) {
   renderCards(addCard);
   closePopup(popupAddElement);
   profileAddForm.reset();
-  popupButtonSaveElement.disabled();
+  popupButtonSaveAddElement.classList.add("popup__save-add_disabled");
+  popupButtonSaveAddElement.setAttribute("disabled","");
+  // popupButtonSaveElement.removeAttribute("disabled");
+  // popupButtonSaveElement.classList.add(".popup__save-inactive");
+  // document.querySelector(".popup__save").disabled = true;
 }
 
 
