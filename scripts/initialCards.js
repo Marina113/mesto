@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
   {
     name: 'Поля тюльпанов в Нидерландах',
     link: 'https://cameralabs.org/media/camera/aprel/23aprel/23_f90611da537c460d4d2cc79222af8324.jpg'
