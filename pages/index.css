@@ -51,3 +51,4 @@
 @import url(../blocks/popup/__picture/popup__picture.css);
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__label/popup__label.css);
+@import url(../blocks/popup/__input-container/_type/popup__input-container_type_error.css);
