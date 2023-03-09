@@ -48,6 +48,7 @@ const validatorEditProfile = new FormValidator(options, profileEditForm);
 validatorEditProfile.enableValidation();
 const validatorAddCard = new FormValidator(options, profileAddForm);
 validatorAddCard.enableValidation();
+validatorAddCard.disableSubmitButton();
 
 //*************    ОТКРЫТИЕ ПОПАПОВ
 function openPopup(popup) {
@@ -61,6 +62,7 @@ function openEditPopup() {
 }
 function openAddPopup() {
   openPopup(popupAddElement);
+  validatorAddCard.disableSubmitButton();
 }
 
 //*************    ОТКРЫТИЕ ПОПАПА ПРОСМОТРА
@@ -133,7 +135,6 @@ function handleProfileFormAddSubmit(evt) {
   renderCards(addCard);
   closePopup(popupAddElement);
   profileAddForm.reset();
-  popupButtonSaveAddElement.setAttribute("disabled","");
 }
 
 //***********    Закрытие по клику на оверлей

@@ -71,6 +71,10 @@ export class FormValidator {
     }
   };
 
+  disableSubmitButton = () => {
+    this._toggleButtonState();
+  };
+
   //***********    ПРОВЕРЯЕТ НАЛИЧИЕ НЕВАЛИДНОГО ПОЛЯ
   _hasInvalidInput = () => {
     // проходим по этому массиву методом some
