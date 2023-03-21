@@ -1,0 +1,14 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i webpack --save-dev"
+  },
+  "author": "Mari",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.76.1"
+  }
+}
