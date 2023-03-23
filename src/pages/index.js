@@ -13,9 +13,10 @@ import {
   options,
   profileEditForm,
   profileAddForm,
+  popupButtonSaveAddElement
 } from "../utils/constants.js";
 import Section from "../components/Section.js";
-import { initialCards } from "../components/initialCards.js";
+import { initialCards } from "../utils/initialCards.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
@@ -67,6 +68,7 @@ const popupAddForm = new PopupWithForm(popupAddElement, submitAddCardHandler);
 
 popupAddButtonElement.addEventListener("click", () => {
   popupAddForm.open();
+  validatorAddCard.disableSubmitButton();
 });
 popupAddForm.setEventListeners();
 
