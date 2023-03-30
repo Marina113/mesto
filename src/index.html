@@ -17,7 +17,10 @@
     <main class="content">
       <section class="profile">
         <div class="profile__two-info">
-        <img class="profile__ava" src="<%=require('./images/avat.jpg')%>" alt="Жак-Ив Кусто">
+          <div class="profile__ava-box">
+            <button type="button" class="profile__ava-button" title="Обновить аватар"></button>
+            <img class="profile__ava" src="<%=require('./images/avat.jpg')%>" alt="Жак-Ив Кусто">
+          </div>
           <div class="profile__information">
             <div class="profile__info">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -75,6 +78,23 @@
         <h2 class="popup__text"></h2>
       </div>
     </div>
+
+
+    <div class="popup popup_type_avatar">       <!--Попап изменения аватара-->
+      <div class="popup__content">
+        <button type="reset" class="popup__close"></button>
+        <h2 class="popup__profil">Обновить аватар</h2>
+        <form class="popup__container popup__container_type_avatar" name="form" novalidate>
+          <label class="popup__label">
+              <input id="url-input" type="url" class="popup__input-container popup__input-container_type_avatar" placeholder="Ссылка на картинку" name="avatar" autocomplete="off" required>
+              <span class="url-input-error popup__input-container-error"></span>
+          </label>
+          <button type="submit" class="popup__save popup__save-add">Сохранить</button>     <!--  ???   -->
+        </form>
+      </div>
+    </div>
+
+
     <template id="card-template" class="card-template_type_default">
       <div class="elements__item">
         <img src="#" alt="#" class="elements__picture elements__picture_type_alt">

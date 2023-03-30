@@ -1,8 +1,10 @@
 .profile__ava{
   margin: 0;
-  max-width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
+  object-fit:cover;
+  object-position: center;
 }
 
 @media screen and (min-width: 320px) and (max-width:768px){

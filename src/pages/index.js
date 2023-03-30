@@ -13,7 +13,9 @@ import {
   options,
   profileEditForm,
   profileAddForm,
-  popupButtonSaveAddElement
+  popupAvatarElement,
+  profileAvatarForm,
+  popupAvatarButtonElement
 } from "../utils/constants.js";
 import Section from "../components/Section.js";
 import { initialCards } from "../utils/initialCards.js";
@@ -65,15 +67,39 @@ const submitAddCardHandler = (item) => {
 };
 
 const popupAddForm = new PopupWithForm(popupAddElement, submitAddCardHandler);
-
 popupAddButtonElement.addEventListener("click", () => {
   popupAddForm.open();
   validatorAddCard.disableSubmitButton();
 });
 popupAddForm.setEventListeners();
 
+
+
+
+
+
+// const submitAvatarCardHandler = (item) => {
+//   section.addItem(createCard({name: item.title, link: item.way}));
+// };
+
+
+
+const popupAvatarForm = new PopupWithForm(popupAvatarElement, submitAvatarCardHandler);
+popupAvatarButtonElement.addEventListener("click", () => {
+  popupAvatarForm.open();
+  validatorAvatarCard.disableSubmitButton();
+});
+popupAvatarForm.setEventListeners();
+
+
+
 const validatorAddCard = new FormValidator(options, profileAddForm);
 validatorAddCard.enableValidation();
 validatorAddCard.disableSubmitButton();
 const validatorEditProfile = new FormValidator(options, profileEditForm);
 validatorEditProfile.enableValidation();
+
+const validatorAvatarCard = new FormValidator(options, profileAvatarForm);
+validatorAvatarCard.enableValidation();
+validatorAvatarCard.disableSubmitButton();
+
