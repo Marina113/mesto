@@ -15,13 +15,19 @@ import {
   profileAddForm,
   popupAvatarElement,
   profileAvatarForm,
-  popupAvatarButtonElement
+  popupAvatarButtonElement,
+  profileDeleteForm,
+  popupDeleteElement,
+  popupTrashButtonElement
 } from "../utils/constants.js";
 import Section from "../components/Section.js";
 import { initialCards } from "../utils/initialCards.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
+// Api.getUserInfo()
+// .then(res => console.log(res))
 
 const popupWithImage = new PopupWithImage(popupWatchElement);
 popupWithImage.setEventListeners();
@@ -78,18 +84,33 @@ popupAddForm.setEventListeners();
 
 
 
-// const submitAvatarCardHandler = (item) => {
-//   section.addItem(createCard({name: item.title, link: item.way}));
-// };
-
-
+const submitAvatarCardHandler = (item) => {
+  // section.addItem(createCard({name: item.title, link: item.way}));
+};
 
 const popupAvatarForm = new PopupWithForm(popupAvatarElement, submitAvatarCardHandler);
 popupAvatarButtonElement.addEventListener("click", () => {
   popupAvatarForm.open();
-  validatorAvatarCard.disableSubmitButton();
 });
 popupAvatarForm.setEventListeners();
+
+
+
+
+
+// const submitDeleteCardHandler = (item) => {
+//   section.addItem(createCard({name: item.title, link: item.way}));
+// };
+
+const popupDeleteForm = new PopupWithForm(popupDeleteElement, submitDeleteCardHandler);
+popupTrashButtonElement.addEventListener("click", () => {
+  popupDeleteForm.open();
+});
+popupDeleteForm.setEventListeners();
+
+
+
+
 
 
 

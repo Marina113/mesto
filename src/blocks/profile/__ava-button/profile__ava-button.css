@@ -9,10 +9,8 @@
   background-size: 26px;
   background-color: rgba(0,0,0,.8);
   border: none;
-  /* border-radius: 50%; */
+  border-radius: 50%;
   position: absolute;
-  display: none;
-  /* left: 0;
-  top:0; */
+  opacity: 0;
   cursor: pointer;
 }

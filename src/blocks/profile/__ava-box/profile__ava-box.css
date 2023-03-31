@@ -1,16 +1,12 @@
 .profile__ava-box{
   border-radius: 50%;
   height: 120px;
-  width: 120px;
-  /* overflow: hidden; */
+  min-width: 120px;
+  overflow: hidden;
   position: relative;
   display: flex;
 }
 
-.profile__ava-box:hover .profile__ava-edit{  
-  display: block;
+.profile__ava-box:hover .profile__ava-button{  
+  opacity: 1;
 }
-
-/* .profile__ava-box:hover::before{
-  opacity: .8;
-} */
