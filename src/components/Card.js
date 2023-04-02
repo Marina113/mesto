@@ -1,5 +1,5 @@
 export default class Card{
-  constructor(item, templateSelector, imageClickHandle, handleTrashClick, handleLikeClick, _id){
+  constructor(item, templateSelector, imageClickHandle, handleTrashClick, handleLikeClick, userId){
     this._templateSelector = templateSelector;
     this._item = item;
     this._name = item.name;
@@ -29,6 +29,11 @@ export default class Card{
       this._card.querySelector(".elements__text").textContent = this._name;
       this._cardImg.src = this._link;
       this._cardImg.alt = this._name;
+
+      // if (this._ownerId !== this._userId) {
+      //   this._card.querySelector('.elements__trash').remove();
+      // };
+
       this._setEventListeners();
       return this._card;
       }

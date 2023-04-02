@@ -78,16 +78,15 @@ section.renderItems(initialCards);
  //***** Попап редактирования профиля */
  const userInfo = new UserInfo({ profileName, profileJob,profileAvatarElement}); 
 
- const submitEditCardHandler = ({ name, subtitle }) => {   
-
-   api.setUserInfo({name,subtitle})
-    .then(({ name, subtitle }) => {
+ const submitEditCardHandler = ({ name, subtitle }) => {
+  //  api.setUserInfo({name,subtitle})
+  //   .then(({ name, subtitle }) => {
       userInfo.setUserInfo({ name, subtitle });
       popupEditForm.close()
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
  };
  
  const popupEditForm = new PopupWithForm(popupEditElement,submitEditCardHandler); 
@@ -115,6 +114,7 @@ const handleFormAvaSubmit = ({avatar}) => {
   api.changeAvatar({avatar})
   .then(({avatar}) => {
     userInfo.setAvaInfo({avatar});
+    userInfo.renderAvatar();
     popupAvatarForm.close()
   })
   .catch((err) => {

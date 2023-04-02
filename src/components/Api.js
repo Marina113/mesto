@@ -41,7 +41,7 @@ _checkResponse(res){
       .then(this._checkResponse);
     };
 
-    changeAvatar({avatar}) {
+    changeAvatar(avatar) {
       return fetch(`${this._url}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
