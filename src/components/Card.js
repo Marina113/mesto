@@ -1,10 +1,16 @@
 export default class Card{
-  constructor(item, templateSelector, imageClickHandle){
+  constructor(item, templateSelector, imageClickHandle, handleTrashClick, handleLikeClick, _id){
     this._templateSelector = templateSelector;
     this._item = item;
     this._name = item.name;
     this._link = item.link;
+    // this._id = item._id;
+    // this._likes = item.likes;
+    // this._ownerId = item.owner._id;
     this._imageClickHandle = imageClickHandle;
+    this._handleTrashClick = handleTrashClick;
+    this._handleLikeClick = handleLikeClick;
+    // this._userId = userId;
   }
 
   _getTemplate(){

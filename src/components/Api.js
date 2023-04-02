@@ -1,25 +1,93 @@
 export default class Api {
-  constructor({headers, baseUrl}) {
-    this.headers = headers;
-    this.baseUrl = baseUrl
+  constructor({headers, url}) {
+    this._headers = headers;
+    this._url = url
   }
 
-  getInitialCards() {
-    // ...
+_checkResponse(res){
+  if (res.ok) {
+    return res.json();
   }
- getUserInfo(){
-  return fetch(`${this.baseUrl}/users/me`, {
-  headers: this.headers
-})
-  // .then(res => res.json())  
- }
-  // другие методы работы с API
+  return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-63',
-  headers: {
-    authorization: '4c8fe4ba-ddf5-4cbd-b158-fff86875ab55',
-    'Content-Type': 'application/json'
+
+  getInitialCards() {
+    return fetch(`${this._url}/cards`, {
+      method: 'GET',
+      headers: this._headers,
+    })
+    .then(this._checkResponse);
   }
-});
+
+  getUserInfo(){
+    return fetch(`${this._url}/users/me`, {
+      method: 'GET',
+      headers: this._headers
+    })
+    .then(this._checkResponse);
+  }
+
+   //***** Редактирование профиля */
+  setUserInfo({name,subtitle}){
+    return fetch(`${this._url}/users/me`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        about: subtitle
+      })
+      })
+      .then(this._checkResponse);
+    };
+
+    changeAvatar({avatar}) {
+      return fetch(`${this._url}/users/me/avatar`, {
+        method: 'PATCH',
+        headers: this._headers,
+        body: JSON.stringify({
+          avatar: avatar
+        })
+        })
+        .then(this._checkResponse);
+      };
+
+  addNewCard({item}){
+    return fetch(`${this._url}/cards`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: item.name,
+        link: item.link
+      })
+      })
+      .then(this._checkResponse);
+    };
+
+    deleteCard(){
+      return fetch(`${this._url}/cards/cardId`, {
+        method: 'DELETE',
+        headers: this._headers,
+      })
+      .then(this._checkResponse);
+    }
+
+    addLike(){
+      return fetch(`${this._url}/cards/cardId/likes`, {
+        method: 'PUT',
+        headers: this._headers,
+      })
+      .then(this._checkResponse);
+    }
+
+    deleteLike(){
+      return fetch(`${this._url}/cards/cardId/likes`, {
+        method: 'DELETE',
+        headers: this._headers,
+      })
+      .then(this._checkResponse);
+    }
+
+  
+  }
+
