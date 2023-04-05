@@ -1,41 +1,28 @@
 export default class UserInfo{
-  constructor({profileName, profileJob,profileAvatarElement}){
-    this._name = profileName;
-    this._info = profileJob;
-    this._avatar = profileAvatarElement;
+  constructor({name, subtitle,avatar}){
+    this._name = name;
+    this._info = subtitle;
+    this._avatar = avatar;
+    this._userId = '';
   }
 
   getUserInfo(){
     return{
     name: this._name.textContent,
-    subtitle: this._info.textContent
+    subtitle: this._info.textContent,
+    avatar: this._avatar.src,
+    userId: this._userId,
     };
   }
 
-  getAvaInfo(){
-    return {
-      avatar: this._avatar.src}
-  }
-
-  setUserInfo({name,subtitle}){
+  setUserInfo({name,about,avatar}){
     this._name.textContent = name;
-    this._info.textContent = subtitle
+    this._info.textContent = about;
+    this._avatar.src = avatar;
+    // this._userId = _id;
   }
 
-  setAvaInfo({avatar}){
-    this._avatar = avatar
-  }
-
-  //Сохраняет полученную информацию о пользователе
-//  fill({name, about, avatar, cohort, _id}) {
-//    this._name = name;
-//    this._job = about;
-//    this._avatar = avatar;
-//    this._cohort = cohort;
-//    this.id = _id;
-//  }
- 
-  renderAvatar() {
-    this._avatarElement.src = this._avatar;
-  }
+  // setAvaInfo({avatar}){
+  //   this._avatar.src = avatar;
+  // }
 }

@@ -11,7 +11,7 @@ _checkResponse(res){
   return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-
+//********Загрузка карточек с сервера
   getInitialCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
@@ -20,6 +20,7 @@ _checkResponse(res){
     .then(this._checkResponse);
   }
 
+  //********Информация о пользователе с сервера */
   getUserInfo(){
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
@@ -28,15 +29,13 @@ _checkResponse(res){
     .then(this._checkResponse);
   }
 
-   //***** Редактирование профиля */
-  setUserInfo({name,subtitle}){
+   //********Редактирование профиля */
+  setUserInfo(data){
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
-      body: JSON.stringify({
-        name,
-        about: subtitle
-      })
+      body: JSON.stringify({name:data.name,
+        about:data.subtitle})
       })
       .then(this._checkResponse);
     };
@@ -45,21 +44,17 @@ _checkResponse(res){
       return fetch(`${this._url}/users/me/avatar`, {
         method: 'PATCH',
         headers: this._headers,
-        body: JSON.stringify({
-          avatar: avatar
-        })
+        body: JSON.stringify(avatar)
         })
         .then(this._checkResponse);
       };
 
-  addNewCard({item}){
-    return fetch(`${this._url}/cards`, {
+  addNewCard(data){
+    // return fetch(`${this._url}/cards/${_id}`, {
+      return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({
-        name: item.name,
-        link: item.link
-      })
+      body: JSON.stringify({name: data.name,link: data.link})
       })
       .then(this._checkResponse);
     };
@@ -72,6 +67,7 @@ _checkResponse(res){
       .then(this._checkResponse);
     }
 
+    //********Постановка лайка */
     addLike(){
       return fetch(`${this._url}/cards/cardId/likes`, {
         method: 'PUT',
@@ -80,6 +76,7 @@ _checkResponse(res){
       .then(this._checkResponse);
     }
 
+    //********Снятие лайка */
     deleteLike(){
       return fetch(`${this._url}/cards/cardId/likes`, {
         method: 'DELETE',
