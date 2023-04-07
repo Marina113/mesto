@@ -50,21 +50,6 @@ const handleCardClick = ({ name, link }) => {
   popupWithImage.open({ name, link });
 };
 
-// const handleDeleteClick = (cardId, cards) => {
-//   console.log(cardId, cards);
-//       popupWithConfirmationDel.open(cardId, cards);
-//       popupWithConfirmationDel.submitHandler((data) => {
-//         api.deleteCard(data.cardId)
-//         .then(() => {
-//           popupWithConfirmationDel.close();
-//           card.deleteCard();
-//         })
-//         .catch((err) => {
-//           console.log(err);
-//         })
-//       })
-// }
-
 // const handleLikeClick = (likes) => {
 
 // }
@@ -80,8 +65,8 @@ function createCard(data) {
         api
           .deleteCard(data._id)
           .then(() => {
-            popupWithConfirmationDel.close();
             card.deleteCards();
+            popupWithConfirmationDel.close();
           })
           .catch((err) => {
             console.log(err);
@@ -89,6 +74,14 @@ function createCard(data) {
       }),
         popupWithConfirmationDel.open();
     },
+    // handleLikeClick
+  })
+    //  userInfo.getUserInfo().userId)
+    .generateCard(data);
+  return card;
+}
+
+
     //  handleDeleteClick:(cardId, cards) => {
     //       popupWithConfirmationDel.open();
     //       popupWithConfirmationDel.submitHandler((data) => {
@@ -102,12 +95,7 @@ function createCard(data) {
     //         })
     //       })
     // };
-  })
-    //  handleLikeClick,
-    //  userInfo.getUserInfo().userId)
-    .generateCard(data);
-  return card;
-}
+
 
 const section = new Section(
   {

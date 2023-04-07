@@ -5,7 +5,7 @@ export default class Card {
     templateSelector,
     handleCardClick,
     handleDeleteClick,
-    handleLikeClick,
+    handleLikeClick
   }) {
     this._templateSelector = templateSelector;
     this._name = data.name;
@@ -41,13 +41,11 @@ export default class Card {
     this._card.querySelector(".elements__text").textContent = this._name;
     this._cardImg.src = this._link;
     this._cardImg.alt = this._name;
-    // this._buttonLike= this._card.querySelector(".elements__like");
+    this._buttonLike= this._card.querySelector(".elements__like");
     this._buttonDelete = this._card.querySelector(".elements__trash");
     // this._likeNumber = this._card.querySelector('.elements__like-click');
     // this._likeNumber.textContent = this._likesLength;
-
     this._deleteTrash();
-
     this._setEventListeners();
     return this._card;
   }
@@ -60,6 +58,7 @@ export default class Card {
 
   deleteCards = () => {
     this._card.remove();
+    this._card = null
   };
 
   _setEventListeners() {
@@ -71,7 +70,7 @@ export default class Card {
       });
 
     this._buttonDelete.addEventListener("click", () =>
-      this._handleDeleteClick()
+      this._handleDeleteClick(this._cardId)
     );
   }
 
@@ -79,9 +78,7 @@ export default class Card {
     evt.target.classList.toggle("elements__like_active");
   }
 
-
-
-  // * Обрабатывает нажатие на удаление карточки
+  //  Обрабатывает нажатие на удаление карточки
   //   _handleDelete () {
   //      this._handleDeleteClick(this._cardId);
   //  }
@@ -89,8 +86,4 @@ export default class Card {
   _handleImageClick() {
     this._handleCardClick({ name: this._name, link: this._link });
   }
-
-  // _isLiked(){
-
-  // }
 }
