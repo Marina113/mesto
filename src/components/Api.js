@@ -50,17 +50,16 @@ _checkResponse(res){
       };
 
   addNewCard(data){
-    // return fetch(`${this._url}/cards/${_id}`, {
       return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({name: data.name,link: data.link})
+      body: JSON.stringify({name: data.title,link: data.way})
       })
       .then(this._checkResponse);
     };
 
-    deleteCard(){
-      return fetch(`${this._url}/cards/cardId`, {
+    deleteCard(cardId){
+      return fetch(`${this._url}/cards/${cardId}`, {
         method: 'DELETE',
         headers: this._headers,
       })

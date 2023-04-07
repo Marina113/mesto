@@ -7,7 +7,7 @@ export default class Section{
 
   renderItems(items) {
     this._renderedItems = items;
-    this._renderedItems.forEach((item) => {
+    this._renderedItems.reverse().forEach((item) => {
       this._renderer(item)
     });
   }
@@ -15,4 +15,13 @@ export default class Section{
   addItem(item) {  //готовая разметка
     this._container.prepend(item);
   }
+
+  // addItem(element, isInversed = false) {
+  //   if (isInversed) {
+  //     this._container.prepend(element);
+  //   } else {
+  //     this._container.append(element);
+  //   };
+  // };
 }
+
