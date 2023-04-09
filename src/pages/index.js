@@ -50,10 +50,6 @@ const handleCardClick = ({ name, link }) => {
   popupWithImage.open({ name, link });
 };
 
-// const handleLikeClick = (likes) => {
-
-// }
-
 function createCard(data) {
   const card = new Card({
     data,
@@ -65,37 +61,42 @@ function createCard(data) {
         api
           .deleteCard(data._id)
           .then(() => {
-            card.deleteCards();
-            popupWithConfirmationDel.close();
+            card.deleteCards(data._id);
           })
           .catch((err) => {
             console.log(err);
+          })
+          .finally(() => {
+            popupWithConfirmationDel.close();
           });
       }),
         popupWithConfirmationDel.open();
     },
-    // handleLikeClick
+    handleLikeClick: () => {
+      if (!card.getCardLike()) {
+        console.log(card.getCardLike());
+        api
+          .addLike(data._id)
+          .then((data) => {
+            card.updateData(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      } else {
+        api
+          .deleteLike(data._id)
+          .then((data) => {
+            card.updateData(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      }
+    }
   })
-    //  userInfo.getUserInfo().userId)
-    .generateCard(data);
-  return card;
+  return card.generateCard(data);
 }
-
-
-    //  handleDeleteClick:(cardId, cards) => {
-    //       popupWithConfirmationDel.open();
-    //       popupWithConfirmationDel.submitHandler((data) => {
-    //         api.deleteCard(cardId, cards)
-    //         .then(() => {
-    //           popupWithConfirmationDel.close();
-    //           card.deleteCard();
-    //         })
-    //         .catch((err) => {
-    //           console.log(err);
-    //         })
-    //       })
-    // };
-
 
 const section = new Section(
   {
@@ -151,8 +152,6 @@ const submitAddCardHandler = (data) => {
     .addNewCard(data)
     .then((res) => {
       section.addItem(createCard(res));
-      // section.addItem(createCard({name: res.name, link: res.link}));
-      // section.addItem(res);
       popupAddForm.close();
     })
     .catch((err) => {

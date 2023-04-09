@@ -67,8 +67,8 @@ _checkResponse(res){
     }
 
     //********Постановка лайка */
-    addLike(){
-      return fetch(`${this._url}/cards/cardId/likes`, {
+    addLike(cardId){
+      return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: 'PUT',
         headers: this._headers,
       })
@@ -76,8 +76,8 @@ _checkResponse(res){
     }
 
     //********Снятие лайка */
-    deleteLike(){
-      return fetch(`${this._url}/cards/cardId/likes`, {
+    deleteLike(cardId){
+      return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: 'DELETE',
         headers: this._headers,
       })
