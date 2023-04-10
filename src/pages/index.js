@@ -56,10 +56,10 @@ function createCard(data) {
     userId,
     templateSelector: "#card-template",
     handleCardClick,
-    handleDeleteClick: () => {
+    handleDeleteClick: (data) => {
       popupWithConfirmationDel.submitHandler(() => {
         api
-          .deleteCard(data._id)
+          .deleteCard(data)
           .then(() => {
             card.deleteCards(data._id);
           })
@@ -135,7 +135,7 @@ const submitEditCardHandler = (data) => {
       console.log(err);
     })
     .finally(() => {
-      popupEditForm.renderLoading(false);
+      popupEditForm.renderLoading(false, 'Сохранить');
     });
 };
 
@@ -158,7 +158,7 @@ const submitAddCardHandler = (data) => {
       console.log(err);
     })
     .finally(() => {
-      popupAddForm.renderLoading(false);
+      popupAddForm.renderLoading(false, 'Создать');
     });
 };
 
@@ -167,6 +167,7 @@ popupAddForm.setEventListeners();
 
 //***** Попап редактирования аватара */
 const handleFormAvaSubmit = (avatar) => {
+  popupAvatarForm.renderLoading(true);
   api
     .changeAvatar(avatar)
     .then((avatar) => {
@@ -175,6 +176,9 @@ const handleFormAvaSubmit = (avatar) => {
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      popupEditForm.renderLoading(false, 'Сохранить');
     });
 };
 
@@ -194,6 +198,7 @@ popupAddButtonElement.addEventListener("click", () => {
 });
 popupAvatarButtonElement.addEventListener("click", () => {
   popupAvatarForm.open();
+  validatorAvatarCard.disableSubmitButton();
 });
 
 //***** Валидация */

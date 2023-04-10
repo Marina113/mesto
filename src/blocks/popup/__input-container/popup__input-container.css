@@ -12,7 +12,7 @@
 }
 
 .popup__input-container:valid{
-  border-bottom: 2px solid blue;
+  border-bottom: 3px solid blue;
 }
 
 /* .popup__input-container:invalid{
